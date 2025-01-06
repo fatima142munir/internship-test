@@ -5,10 +5,8 @@ import Footer from "./footer"
 import { useEffect, useState } from 'react'
 // import { MdOutlineArrowOutward } from "react-icons/md";
 
-const Hero: React.FC = () => {
-    // const now = new Date()
-    // const [isHydrated, setIsHydrated] = useState(false);
-    // const [time, setTime] = useState<string>("");
+const Main: React.FC = () => {
+
     const [hours, setHours] = useState("00")
     const [minutes, setMinutes] = useState("")
     const [seconds, setSeconds] = useState("")
@@ -19,14 +17,13 @@ const Hero: React.FC = () => {
         // setIsHydrated(true);
         const timer = setInterval(() => {
             const now = new Date()
-            
+
             setSeconds(String(now.getSeconds()).padStart(2, "0"));
             setMinutes(String(now.getMinutes()).padStart(2, "0"));
             setHours(String(now.getHours()).padStart(2, "0"));
-            const day = String(now.getDate()).padStart(2, "0"); // Ensures two digits
+            const day = String(now.getDate()).padStart(2, "0");
             setDate(day);
-            // setDate(now.getDate());
-            // setDate(formattedDate);
+            
 
 
 
@@ -35,7 +32,6 @@ const Hero: React.FC = () => {
         return () => clearInterval(timer)
     }, [])
 
-    // console.log(date)
 
     // if (!isHydrated) {
     //     // Render nothing or a placeholder on the server
@@ -48,7 +44,7 @@ const Hero: React.FC = () => {
 
 
     return (
-        <div className="pt-[70px] bg-image1 bg-background bg-center m-auto w-[100vw] h-[100vh] lg:w-[1600px] lg:h-[900px]">
+        <div className="md:pt-[70px] pt-[40px] bg-image1 bg-background bg-center m-auto w-full h-[950px] min-h-[900px] max-w-[1600px] ">
             <Header />
 
             <div className="flex flex-col gap-8 ">
@@ -59,53 +55,58 @@ const Hero: React.FC = () => {
                 <div className="text-fontWhite w-[80vw] md:w-[640px] m-auto text-center">
                     <p className="md:font-bold md:text-[56px] font-medium text-[30px]">COMING SOON</p>
                 </div>
-                <div className="text-fontWhite justify-center md:h-[44px] md:w-[478px] h-[10vh] w-[80vw] m-auto text-center opacity-70">
+                <div className="text-fontWhite justify-center md:h-[44px] md:w-[478px] h-[15vh] w-[80vw] m-auto text-center opacity-70">
                     <p className="font-medium text-[18px]">Assemble your team, elevate your game.  A new era in team management is on the horizon.</p>
                 </div>
-                <div className="m-auto w-[640px] h-[88px] gap-5 flex">
-                    <div className=" bg-background w-1/4 text-center">
-                        <div className="flex text-fontWhite bg-background">
+                
+                <div className="mx-auto w-2/3 md:w-[640px] md:h-[88px] gap-4 flex flex-wrap">
+                    <div className="bg-background md:w-[148px] md:h-[88px] pl-3 pr-1 w-1/3 m-auto text-center rounded-lg">
+                        <div className="flex text-fontWhite md:w-[89px] md:h-[88px] justify-between m-auto">
                             <div>
                                 <p className="text-[48px] font-semibold">{date}</p>
                             </div>
-                            <div className="bg-yellow-300 m-auto  "><p className="text-[16px] text-end">H</p>
+                            <div className="md:h-[58px] flex items-end">
+                                <p className="text-[16px] leading-none">D</p>
                             </div>
                         </div>
                     </div>
-                    <div className=" bg-background w-1/4">
-                        <div className="flex text-fontWhite bg-background">
+                    <div className="bg-background md:w-[148px] md:h-[88px] pl-3 pr-1 w-1/3 m-auto text-center rounded-lg">
+                        <div className="flex text-fontWhite md:w-[89px] md:h-[88px] justify-between m-auto">
                             <div>
                                 <p className="text-[48px] font-semibold">{hours}</p>
                             </div>
-                            <div className="bg-yellow-300 m-auto  "><p className="text-[16px] text-end">H</p>
+                            <div className="md:h-[58px] flex items-end">
+                                <p className="text-[16px] leading-none">H</p>
                             </div>
                         </div>
                     </div>
-                    <div className=" bg-background w-1/4">
-                        <div className="flex text-fontWhite bg-background">
+                    <div className="bg-background md:w-[148px] md:h-[88px] pl-3 pr-1 w-1/3 m-auto text-center rounded-lg">
+                        <div className="flex text-fontWhite md:w-[89px] md:h-[88px] justify-between m-auto">
                             <div>
                                 <p className="text-[48px] font-semibold">{minutes}</p>
                             </div>
-                            <div className="bg-yellow-300 m-auto  "><p className="text-[16px] text-end">H</p>
+                            <div className="md:h-[58px] flex items-end">
+                                <p className="text-[16px] leading-none">M</p>
                             </div>
                         </div>
                     </div>
-                    <div className=" bg-background w-1/4">
-                        <div className="flex text-fontWhite bg-background">
+                    <div className="bg-background md:w-[148px] md:h-[88px] pl-3 pr-1 w-1/3 m-auto text-center rounded-lg">
+                        <div className="flex text-fontWhite md:w-[89px] md:h-[88px] justify-between m-auto">
                             <div>
                                 <p className="text-[48px] font-semibold">{seconds}</p>
                             </div>
-                            <div className="bg-yellow-300 m-auto  "><p className="text-[16px] text-end">H</p>
+                            <div className="md:h-[58px] flex items-end">
+                                <p className="text-[16px] leading-none">S</p>
                             </div>
                         </div>
                     </div>
 
 
                 </div>
-                <div className="flex m-auto items-center w-[416px] h-[80px] bg-white/10 backdrop-blur-sm border-l border-fontWhite rounded-full opacity-70">
-                    <input className="h-[22px] w-[233px] m-auto ml-7 text-[18px] font-medium bg-transparent" type="text" placeholder="Enter your email for updates" />
+                <div className="flex flex-wrap m-auto items-center justify-between w-2/3 h-[100px] md:w-[416px] md:h-[80px] bg-white/10 backdrop-blur-sm border-l border-fontWhite rounded-full opacity-70">
+                    <input className="w-full md:h-[22px] md:w-[233px] m-auto ml-7 text-[14px] sm:text-[18px] font-medium bg-transparent" type="text" placeholder="Enter your email for updates" />
 
-                    <button className="w-[64px] h-[64px] rounded-full m-2 bg-fontGreen hover:cursor-pointer"><Image className="m-auto" alt="vector" height={24} width={24} src={"/Vector 35.png"}></Image></button>
+                    <button className="w-[50px] h-[50px] md:w-[64px] md:h-[64px] rounded-full m-auto md:m-2 bg-fontGreen hover:cursor-pointer"><Image className="m-auto" alt="vector" height={24} width={24} src={"/Vector 35.png"}></Image></button>
                 </div>
             </div>
             <Footer />
@@ -114,5 +115,5 @@ const Hero: React.FC = () => {
     )
 }
 
-export default Hero
+export default Main
 

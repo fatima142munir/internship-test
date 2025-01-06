@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const Hero = dynamic(() => import("./components/hero"), {
+const Main = dynamic(() => import("./components/main"), {
   ssr: false, // Disable SSR
 });
 
@@ -8,7 +8,7 @@ const Home= ()=> {
   const now = new Date()
   return (
     <main>
-      <Hero />
+      <Main />
     </main>
   )
 }
