@@ -44,7 +44,7 @@ const Main: React.FC = () => {
 
 
     return (
-        <div className="md:pt-[70px] pt-[40px] bg-image1 bg-background bg-center m-auto w-full h-[950px] min-h-[900px] max-w-[1600px] ">
+        <div className="md:pt-[70px] pt-[40px] bg-image1 bg-background bg-center m-auto w-full min-h-[900px] max-w-[1600px] ">
             <Header />
 
             <div className="flex flex-col gap-8 ">
