@@ -1,12 +1,13 @@
 import React from 'react'
 import Image from "next/image"
+import {exo} from "../components/main"
 
 const Footer = () => {
   return (
     <footer className="m-auto flex flex-wrap w-[70vw] h-[10vh] md:w-[460px] md:h-[64px] pt-16 md:pt-36">
         <div className="flex sm:w-[306px] sm:h-[48px] justify-between m-auto">
             <div><Image className="w-[130px] h-[48]" height={48} width={130} src={"/Frame 9.png"} alt="footer image"/></div>
-            <div className="text-fontWhite opacity-70 w-full h-[50px] sm:w-[160px] sm:h-[38px]">
+            <div className={`${exo.className} text-fontWhite opacity-70 w-full h-[50px] sm:w-[160px] sm:h-[38px]`}>
                 <p>Join over 2M global 
                 pro player and teams</p>
             </div>
