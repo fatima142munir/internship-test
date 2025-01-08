@@ -17,21 +17,24 @@ const Main: React.FC = () => {
     const [minutes, setMinutes] = useState("")
     const [seconds, setSeconds] = useState("")
     const [date, setDate] = useState("00")
+    const now = new Date()
 
+    const rawHours = now.getHours();
 
+    const formattedHours = rawHours % 12 || 12;
+    
+    
     useEffect(() => {
         // setIsHydrated(true);
         const timer = setInterval(() => {
             const now = new Date()
-
+            
             setSeconds(String(now.getSeconds()).padStart(2, "0"));
             setMinutes(String(now.getMinutes()).padStart(2, "0"));
-            setHours(String(now.getHours()).padStart(2, "0"));
+            setHours(String(formattedHours).padStart(2, "0"));
+            // setHours(String(now.getHours()).padStart(2, "0"));
             const day = String(now.getDate()).padStart(2, "0");
             setDate(day);
-            
-
-
 
         }, 1000)
 
@@ -50,7 +53,7 @@ const Main: React.FC = () => {
 
 
     return (
-        <div className="md:pt-[70px] pt-[40px] bg-image1 bg-background bg-center m-auto w-full min-h-[900px] max-w-[1600px] ">
+        <div className="md:pt-[70px] pt-[40px] bg-image1 bg-background bg-center m-auto min-h-screen xl:w-full ">
             <Header />
 
             <div className="flex flex-col gap-8 ">
@@ -110,7 +113,7 @@ const Main: React.FC = () => {
 
                 </div>
                 <div className="flex flex-wrap m-auto items-center justify-between w-2/3 h-[100px] md:w-[416px] md:h-[80px] bg-white/10 backdrop-blur-sm border-l border-fontWhite rounded-full opacity-100">
-                    <input className={`${exo.className} w-full md:h-[22px] md:w-[233px] m-auto ml-7 placeholder:text-fontWhite text-[14px] sm:text-[18px] font-light bg-transparent`} type="text" placeholder="Enter your email for updates" />
+                    <input className={`${exo.className} w-full md:h-[22px] md:w-[233px] m-auto ml-7 outline-none text-fontWhite placeholder:text-fontWhite text-[14px] sm:text-[18px] font-light bg-transparent`} type="text" placeholder="Enter your email for updates" />
 
                     <button className="w-[50px] h-[50px] md:w-[64px] md:h-[64px] rounded-full m-auto md:m-2 bg-fontGreen hover:cursor-pointer"><Image className="m-auto" alt="vector" height={24} width={24} src={"/Vector 35.png"}></Image></button>
                 </div>
